@@ -16,8 +16,10 @@ POST http://localhost:5003/auth/login
 Content-Type: application/json
 
 {
-    "username": "maishaa@gmail.com",
-    "password": "12312312"
+    "username": "maisha@gmail.com",
+    "password": "123123123"
 }
 
-###
+### FETCH ALL TODOS GET/TODOS (protected)
+GET http://localhost:5003/todos
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ4NjI2MzY1LCJleHAiOjE3NDg3MTI3NjV9._DFNkTAmC9VOQSqFhr3sMx3u-YSESDNbpU7vInlUXts
