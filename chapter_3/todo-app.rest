@@ -22,4 +22,23 @@ Content-Type: application/json
 
 ### FETCH ALL TODOS GET/TODOS (protected)
 GET http://localhost:5003/todos
-Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ4NjI2MzY1LCJleHAiOjE3NDg3MTI3NjV9._DFNkTAmC9VOQSqFhr3sMx3u-YSESDNbpU7vInlUXts
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ4NjMzOTA1LCJleHAiOjE3NDg3MjAzMDV9.k4Mq4BBaA_Zhr29v7-osBa8_Cjo5afRRmjKKbo0TKbY
+
+###Creates a new todo POST /TODOS (protected)
+POST http://localhost:5003/todos
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ4NjMzOTA1LCJleHAiOjE3NDg3MjAzMDV9.k4Mq4BBaA_Zhr29v7-osBa8_Cjo5afRRmjKKbo0TKbY
+Content-Type: application/json
+
+{
+    "task": "Finish c-3 of backend course"
+}
+
+###Update a todo PUT /TODOS/:ID (protected)
+PUT http://localhost:5003/todos/2?page=4
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ4NjMzOTA1LCJleHAiOjE3NDg3MjAzMDV9.k4Mq4BBaA_Zhr29v7-osBa8_Cjo5afRRmjKKbo0TKbY
+Content-Type: application/json
+
+{
+    "completed": 1
+}
+
