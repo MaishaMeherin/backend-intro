@@ -46,6 +46,30 @@ router.post('/login', (req, res) => {
     //so to match the encrypted password saved in the database with the password user inputs, we assign a key to the encrypted password and the input password is then encrypted according to the key using the same algorithm.
     //finally both encrypted password is matched
 
+    const {username, password} = req.body
+
+    try{
+        const getUser = db.prepare('SELECT * FROM user WHERE username = ?')
+        const user = getUser.get(username) //get the user from the database, inject the username in the query
+
+        if (!user) {
+            return res.status(404).send({ message: 'User not found' })
+        }
+
+        const passwordIsValid = bcrypt.compareSync(password, user.password) //hash our password and then compare it to hashed password
+
+        if (!passwordIsValid) {
+            return res.status(401).send({ message: 'Invalid password' })
+        }
+
+        //finally a successful authentication
+        //give them token for all their crud operations
+        const token = jwt.sign( {id: user.id}, process.env.JWT_SECRET,  {expiresIn: '24h'})
+        res.json({ token }) //send back the token
+    }catch (err) {
+        console.log(err.message)
+        res.status(503)
+    }
 })
 export default router
 
